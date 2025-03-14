@@ -9,7 +9,5 @@ wheels/
 # Virtual environments
 .venv
 
-bookmarks*.html
+*bookmarks*.html
 *.json
-
-!output_schema.json
