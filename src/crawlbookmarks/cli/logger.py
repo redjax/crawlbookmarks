@@ -1,9 +1,10 @@
 import sys
 import logging
 from pathlib import Path
+import argparse
 
 
-def set_logging_format(args):
+def set_logging_format(args: argparse.Namespace) -> None:
     """Setup logging based on args passed to CLI."""
     # Use the root logger
     root_logger = logging.getLogger()
