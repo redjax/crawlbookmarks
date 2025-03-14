@@ -1,8 +1,9 @@
-import sys
+from __future__ import annotations
+
+import argparse
 import logging
 from pathlib import Path
-import argparse
-
+import sys
 
 def set_logging_format(args: argparse.Namespace) -> None:
     """Setup logging based on args passed to CLI."""

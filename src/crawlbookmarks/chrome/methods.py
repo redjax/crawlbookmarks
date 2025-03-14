@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import logging
 
 from bs4 import BeautifulSoup
@@ -17,6 +19,7 @@ def parse_bookmarks(html_file: str, include_separators: bool = True) -> dict:
 
     Returns:
         (dict): The parsed contents from the bookmarks HTML file.
+
     """
 
     def parse_folder(folder, parent_path=""):

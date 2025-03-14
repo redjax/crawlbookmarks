@@ -1,10 +1,12 @@
-import typing as t
-from pathlib import Path
-import logging
-from contextlib import AbstractContextManager
+from __future__ import annotations
 
-from crawlbookmarks.utils import io
+from contextlib import AbstractContextManager
+import logging
+from pathlib import Path
+import typing as t
+
 from crawlbookmarks import chrome
+from crawlbookmarks.utils import io
 
 log = logging.getLogger(__name__)
 

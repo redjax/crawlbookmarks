@@ -2,9 +2,8 @@ from __future__ import annotations
 
 import logging
 
-from crawlbookmarks import chrome
+from crawlbookmarks import chrome, cli
 from crawlbookmarks.utils import io
-from crawlbookmarks import cli
 
 log = logging.getLogger(__name__)
 
@@ -18,7 +17,6 @@ def run_cli() -> None:
         Calls the cli.parse_args() method, which takes a user's input parameters & maps them to args in
         an argparse.Namespace object.
     """
-
     ## Parse args into a namespace object
     args = cli.parse_args()
     ## Configure logging based on args
@@ -69,6 +67,7 @@ def start_crawl(
 
     Returns:
         (dict): The parsed bookmarks data.
+
     """
     log.debug(f"Parsing file '{bookmarks_file}'")
     try:

@@ -1,7 +1,8 @@
+from __future__ import annotations
+
 import logging
 
-from crawlbookmarks import chrome
-from crawlbookmarks import start_crawl
+from crawlbookmarks import chrome, start_crawl
 
 log = logging.getLogger(__name__)
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import argparse
 
 __all__ = ["parse_args"]
@@ -5,7 +7,6 @@ __all__ = ["parse_args"]
 
 def parse_args() -> argparse.Namespace:
     """Parse CLI args."""
-
     parser = argparse.ArgumentParser(
         "crawlbookmarks",
         description="Parse a bookmarks.html file exported from your browser into JSON.",

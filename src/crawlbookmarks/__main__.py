@@ -6,6 +6,7 @@ Description:
 
     The app can be run as a CLI by calling it directly, i.e. `python crawlbookmarks --help`.
 """
+from __future__ import annotations
 
 import logging
 
