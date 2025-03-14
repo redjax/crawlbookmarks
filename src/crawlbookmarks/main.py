@@ -6,7 +6,7 @@ import logging
 from bs4 import BeautifulSoup
 
 from crawlbookmarks import chrome
-from crawlbookmarks.utils import export_to_json
+from crawlbookmarks.utils import io
 
 log = logging.getLogger(__name__)
 
@@ -24,6 +24,6 @@ if __name__ == "__main__":
     include_separators = False  # Set to False to exclude separators
 
     bookmarks_data = chrome.parse_bookmarks(html_file, include_separators)
-    export_to_json(bookmarks_data, output_file)
+    io.export_to_json(bookmarks_data, output_file)
 
     log.info(f"Bookmarks exported successfully to '{output_file}'")
