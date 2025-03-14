@@ -8,6 +8,8 @@ from crawlbookmarks import cli
 
 log = logging.getLogger(__name__)
 
+__all__ = ["run_cli"]
+
 
 def run_cli():
     args = cli.parse_args()
