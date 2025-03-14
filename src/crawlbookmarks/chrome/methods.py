@@ -8,10 +8,24 @@ __all__ = ["parse_bookmarks"]
 
 
 def parse_bookmarks(html_file: str, include_separators: bool = True) -> dict:
-    """Open and read the HTML file."""
+    """Open and read the HTML file.
+
+    Params:
+        html_file (str): Path to a bookmarks.html file to read.
+        include_separators (bool): Include separator bookmarks when parsing (i.e. where
+        the bookmark's text value is '---').
+
+    Returns:
+        (dict): The parsed contents from the bookmarks HTML file.
+    """
 
     def parse_folder(folder, parent_path=""):
-        """Function to recursively parse folders and bookmarks."""
+        """Function to recursively parse folders and bookmarks.
+
+        Params:
+            folder (...): The folder to parse.
+            parent_path (...): Subdirectory where bookmarks folder lives.
+        """
         folder_name = folder.find("h3").text if folder.find("h3") else "Root"
         folder_path = parent_path + "/" + folder_name if parent_path else folder_name
 
