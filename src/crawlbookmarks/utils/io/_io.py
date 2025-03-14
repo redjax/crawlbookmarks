@@ -9,6 +9,12 @@ __all__ = ["export_to_json"]
 
 
 def export_to_json(bookmarks_data: dict, output_file: str) -> None:
+    """Export parsed bookmarks data dict to a JSON file.
+
+    Params:
+        bookmarks_data (dict): Dict representing a parsed bookmarks file.
+        output_file (str): Path to a JSON file where data will be saved.
+    """
     try:
         with open(output_file, "w", encoding="utf-8") as file:
             json.dump(bookmarks_data, file, indent=4)
