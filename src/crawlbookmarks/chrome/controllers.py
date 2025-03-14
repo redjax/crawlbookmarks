@@ -45,7 +45,7 @@ class ChromeBookmarksController(AbstractContextManager):
 
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(self, exc_type, exc_val) -> None:
         if exc_val:
             self.logger.exception(f"({exc_type}) {exc_val}")
             return False
