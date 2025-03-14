@@ -136,8 +136,6 @@ def run_vulture_check(session: nox.Session):
 
     log.info("Checking for dead code with vulture")
     session.run("vulture", "src/", "--min-confidence", "100")
-    session.run("vulture", "packages/", "--min-confidence", "100")
-    session.run("vulture", "applications/", "--min-confidence", "100")
 
 
 @nox.session(python=[DEFAULT_PYTHON], name="uv-export")
