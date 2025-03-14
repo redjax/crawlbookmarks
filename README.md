@@ -15,7 +15,12 @@ A file named `bookmarks.json` will be outputted to the path where you ran this s
 
 ### With virtualenv
 
-...
+- Create a virtualenv with `venv .venv`
+- Activate with:
+  - (Linux/Mac): `. .venv/scripts/activate`
+  - (Windows): `. .venv\Scripts\activate.bat`
+- Install requirements with `pip install -r requirements.txt`
+- Run the script with `python -m cli --help`
 
 ## Usage
 
