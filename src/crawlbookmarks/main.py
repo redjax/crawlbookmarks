@@ -8,7 +8,7 @@ from crawlbookmarks import cli
 
 log = logging.getLogger(__name__)
 
-__all__ = ["run_cli"]
+__all__ = ["run_cli", "start_crawl"]
 
 
 def run_cli():
@@ -29,6 +29,30 @@ def run_cli():
         )
     except Exception as exc:
         msg = f"({type(exc)}) Error parsing bookmarks in file '{html_file}'. Details: {exc}"
+        log.error(msg)
+
+        exit(1)
+
+    log.debug(f"Exporting parsed bookmarks to {output_file}")
+    try:
+        io.export_to_json(bookmarks_data, output_file)
+    except Exception as exc:
+        msg = f"({type(exc)}) Error saving parsed bookmarks to file '{output_file}'. Details: {exc}"
+        log.error(msg)
+
+        exit(1)
+
+    log.info(f"Bookmarks exported successfully to '{output_file}'")
+
+
+def start_crawl(bookmarks_file: str, output_file: str, include_separators: bool):
+    log.debug(f"Parsing file '{bookmarks_file}'")
+    try:
+        bookmarks_data = chrome.parse_bookmarks(
+            html_file=bookmarks_file, include_separators=include_separators
+        )
+    except Exception as exc:
+        msg = f"({type(exc)}) Error parsing bookmarks in file '{bookmarks_file}'. Details: {exc}"
         log.error(msg)
 
         exit(1)
