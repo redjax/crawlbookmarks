@@ -8,6 +8,7 @@ dependencies = [
     "beautifulsoup4>=4.13.3",
     "html5lib>=1.1",
     "lxml>=5.3.1",
+    "ruff>=0.11.0",
 ]
 
 [project.scripts]
@@ -16,3 +17,6 @@ crawlbookmarks = "crawlbookmarks:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = []

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from bs4 import BeautifulSoup
 
 def check_valid_bookmarks_file(bookmarks_file):
