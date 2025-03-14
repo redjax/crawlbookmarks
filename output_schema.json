@@ -1,0 +1,23 @@
+[
+    {
+        "folder_name": "...",
+        "bookmarks": [
+            {
+                "title": "...",
+                "url": "..."
+            }
+        ],
+        "subfolders": [
+            {
+                "folder_name": "...",
+                "bookmarks": [
+                    {
+                        "title": "...",
+                        "url": "..."
+                    }
+                ],
+                "subfolders": []
+            }
+        ]
+    }
+]
