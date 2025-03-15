@@ -8,8 +8,6 @@ log = logging.getLogger(__name__)
 
 def parse_bookmarks(html_file: str):
     log.debug(f"Reading bookmarks from file '{html_file}'.")
-    with open(html_file, "r", encoding="utf-8") as f:
-        soup = BeautifulSoup(f, "lxml")
 
     def parse_folder(dl_element, depth=0):
         # log.debug(f"{'  ' * depth}Parsing folder: {dl_element.name}")
@@ -50,6 +48,15 @@ def parse_bookmarks(html_file: str):
                     }
 
         return folder
+
+    try:
+        with open(html_file, "r", encoding="utf-8") as file:
+            soup = BeautifulSoup(file, "html.parser")
+    except Exception as e:
+        msg = f"({type(e)}) Error parsing bookmarks file '{html_file}'. Details: {e}"
+        log.error(msg)
+
+        raise
 
     bookmarks = {}
     root_dl = soup.find("dl")
