@@ -63,7 +63,7 @@ def parse_bookmarks(html_file: str):
 
     if root_dl:
         bookmarks = parse_folder(root_dl)
-        log.debug(f"Bookmarks: {bookmarks}")
+        # log.debug(f"Bookmarks: {bookmarks}")
         return bookmarks
     else:
         log.warning(
