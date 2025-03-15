@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import logging
-
 from bs4 import BeautifulSoup
 
 log = logging.getLogger(__name__)
@@ -41,7 +40,18 @@ def parse_bookmarks(html_file: str, include_separators: bool = True) -> dict:
                 bookmark_name = dt.a.text
                 bookmark_url = dt.a["href"]
                 if include_separators or bookmark_name != "---":
-                    bookmarks_data[folder_path][bookmark_url] = bookmark_name
+                    # Extract link properties
+                    link_properties = {
+                        "url": bookmark_url,
+                        "name": bookmark_name,
+                        "attributes": dict(dt.a.attrs),
+                    }
+                    # Add specific properties if they exist
+                    for prop in ["add_date", "last_modified", "icon_uri", "icon"]:
+                        if prop in dt.a.attrs:
+                            link_properties[prop] = dt.a[prop]
+
+                    bookmarks_data[folder_path][bookmark_url] = link_properties
 
         # Recursively parse subfolders
         for dl in folder.find_all("dl"):
@@ -53,7 +63,6 @@ def parse_bookmarks(html_file: str, include_separators: bool = True) -> dict:
     except Exception as e:
         msg = f"({type(e)}) Error parsing bookmarks file '{html_file}'. Details: {e}"
         log.error(msg)
-
         raise
 
     ## Initialize data structure to hold bookmarks
@@ -66,7 +75,6 @@ def parse_bookmarks(html_file: str, include_separators: bool = True) -> dict:
         except Exception as exc:
             msg = f"({type(exc)}) Error parsing folder '{dl}'. Details: {exc}"
             log.error(msg)
-
             continue
 
     return bookmarks_data
