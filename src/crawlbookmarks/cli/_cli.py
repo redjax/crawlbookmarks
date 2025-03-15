@@ -28,6 +28,7 @@ def parse_args() -> argparse.Namespace:
         "--in",
         type=str,
         help="Path to your bookmarks.html file to parse",
+        default="bookmarks.html",
     )
     parser.add_argument(
         "-o",
@@ -35,6 +36,7 @@ def parse_args() -> argparse.Namespace:
         "--out",
         type=str,
         help="Path to a .json file where the parsed bookmarks will be saved",
+        default="bookmarks.json",
     )
     parser.add_argument(
         "-s",

@@ -30,6 +30,17 @@ def run_cli() -> None:
     output_file = args.output
     include_separators = args.include_separators
 
+    log.debug(
+        f"""
+Args:
+
+html_file: {html_file}
+output_file: {output_file}
+include_separators: {include_separators}
+debug: {args.debug}
+"""
+    )
+
     log.debug(f"Parsing file '{html_file}'")
     try:
         ## Attempt to parse bookmarks file into a variable
