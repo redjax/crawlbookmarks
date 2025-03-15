@@ -1,5 +1,11 @@
+import logging
+
 from crawlbookmarks import firefox
 import json
+
+log = logging.getLogger(__name__)
+
+logging.basicConfig(level="DEBUG")
 
 # Usage
 html_file = "ff_bookmarks.html"
