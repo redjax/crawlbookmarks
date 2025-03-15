@@ -6,11 +6,12 @@ Description:
 
     The app can be run as a CLI by calling it directly, i.e. `python crawlbookmarks --help`.
 """
+
 from __future__ import annotations
 
 import logging
 
-from crawlbookmarks.main import run_cli
+from crawlbookmarks.cli import run_cli
 
 log = logging.getLogger(__name__)
 
